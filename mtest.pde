@@ -35,8 +35,12 @@ void setup() {
 }
 
 String[] getCoordinates(String url) {
-  String[][] m = matchAll(loadStrings(url)[0], "<string.*>(.*),</string>");
-  return split(m[0][1], ',');
+  String[] m = match(loadStrings(url)[0], "<string.*>(.*),</string>");
+  if (m != null) {
+      return split(m[1], ',');
+  }
+  String err[] = {"-1 -1"};
+  return err;
 }
 
 void checkLandmarks(String[] lines) {
@@ -44,8 +48,6 @@ void checkLandmarks(String[] lines) {
     boolean anyMatch = false;
     for (String line: lines) {
       float[] xy = float(split(line, ' '));
-      println(xy[0]);
-      println(xy[1]);
       if(l.inCircle(xy)) {
         anyMatch = true;
         break;
