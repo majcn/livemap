@@ -11,7 +11,7 @@ void setup() {
   size(displayWidth, displayHeight);
   
   landmarks = new ArrayList();
-  XML[] config = loadXML("config.xml").getChildren("landmark");
+  XML[] config = loadXML("config.xml").getChildren("PLAYGROUND")[0].getChildren("HOTSPOTS")[0].getChildren("CIRCLE")[0].getChildren("SPOT");
   for(XML element: config) {
     float x = element.getFloat("x");
     float y = element.getFloat("y");

@@ -1,23 +1,31 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<landmarks>
-  <landmark x="1"
-            y="1"
-            r="1"
-            name="Adidi.mp4"
-            queue="true" />
-  <landmark x="123"
-            y="123"
-            r="1"
-            name="gimp3.mp4"
-            queue="true" />
-  <landmark x="500"
-            y="500"
-            r="1"
-            name="Giuseppe Tartini - il trillo del diavolo.mp3"
-            queue="false" />
-  <landmark x="600"
-            y="500"
-            r="1"
-            name="Stereo sea sound ~~ Nature calls me~~.mp3"
-            queue="false" />
-</landmarks>
+<ROOT>
+    <RESOLUTION w="1024" h="768" />
+    <KINECT>
+        <NEAR>0</NEAR>
+        <FAR>4000</FAR>
+        <THRESHOLD>20</THRESHOLD>
+        <INTENSITY>100</INTENSITY>
+    </KINECT>
+    <PLAYGROUND>
+        <AREA>
+            <T0 x="43.000000" y="36.000000" />
+            <T1 x="982.000000" y="42.000000" />
+            <T2 x="958.000000" y="717.000000" />
+            <T3 x="37.000000" y="732.000000" />
+        </AREA>
+        <HOTSPOTS>
+            <CIRCLE>
+                <SPOT x="712.000000" y="560.000000" r="84.000000" name="Adidi.mp4" queue="true" type="Video"></SPOT>
+                <SPOT x="240.000000" y="523.000000" r="146.000000" name="Giuseppe Tartini - il trillo del diavolo.mp3" queue="false" type="Music"></SPOT>
+            </CIRCLE>
+            <BOX>
+                <SPOT name="" queue="false" type="Marker">
+                    <T0 x="755.000000" y="66.000000"></T0>
+                    <T1 x="948.000000" y="58.000000"></T1>
+                    <T2 x="926.000000" y="303.000000"></T2>
+                    <T3 x="651.000000" y="275.000000"></T3>
+                </SPOT>
+            </BOX>
+        </HOTSPOTS>
+    </PLAYGROUND>
+</ROOT>
