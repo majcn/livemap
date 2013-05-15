@@ -7,6 +7,8 @@ boolean sketchFullScreen() {
 ArrayList<Landmark> landmarks;
 ConcurrentLinkedQueue<Landmark> queue;
 
+final static String API_URL = "http://192.168.1.10/WcfDemoService/DemoService.svc/getData/data";
+
 void setup() {
   size(displayWidth, displayHeight);
   
@@ -35,12 +37,19 @@ void setup() {
 }
 
 String[] getCoordinates(String url) {
-  String[] m = match(loadStrings(url)[0], "<string.*>(.*),</string>");
-  if (m != null) {
-      return split(m[1], ',');
+  return getCoordinates(url, ';');
+}
+
+String[] getCoordinates(String url, char delimiter) {
+  try {
+    String data = loadStrings(url)[0];
+    println(data);
+    String[] m = match(data, "<string.*>(.*)"+delimiter+"</string>");
+    return split(m[1].replaceAll(",", "."), delimiter);
+  } catch(Exception e) {
+    String err[] = {"-1 -1"};
+    return err;
   }
-  String err[] = {"-1 -1"};
-  return err;
 }
 
 void checkLandmarks(String[] lines) {
@@ -48,6 +57,8 @@ void checkLandmarks(String[] lines) {
     boolean anyMatch = false;
     for (String line: lines) {
       float[] xy = float(split(line, ' '));
+      println(xy[0] + "   " + xy[1]);
+      println();
       if(l.inCircle(xy)) {
         anyMatch = true;
         break;
@@ -64,7 +75,7 @@ void checkLandmarks(String[] lines) {
 
 void draw() {
   background(0);
-  checkLandmarks(getCoordinates("http://192.168.1.10/WcfDemoService/DemoService.svc/getData/data"));
+  checkLandmarks(getCoordinates(API_URL));
   boolean playQueued = false;
   boolean playThis = false;
   for(Landmark l: queue) {
