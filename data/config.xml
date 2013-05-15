@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<landmarks>
+  <landmark x="1"
+            y="1"
+            r="1"
+            name="Adidi.mp4"
+            queue="true" />
+  <landmark x="123"
+            y="123"
+            r="1"
+            name="gimp3.mp4"
+            queue="true" />
+  <landmark x="500"
+            y="500"
+            r="1"
+            name="Giuseppe Tartini - il trillo del diavolo.mp3"
+            queue="false" />
+  <landmark x="600"
+            y="500"
+            r="1"
+            name="Stereo sea sound ~~ Nature calls me~~.mp3"
+            queue="false" />
+</landmarks>
